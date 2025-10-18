@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qjn is KING!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Press+Start+2P&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Pacifico', cursive;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        .king-container {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            max-width: 95vw;
+        }
+        
+        .king-text {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            color: #ff0000; /* 统一使用红色 */
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+            animation: float 3s ease-in-out infinite;
+            margin-top: clamp(40px, 8vw, 60px);
+            line-height: 1.2;
+            word-wrap: break-word;
+        }
+        
+        .crown {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            position: absolute;
+            top: clamp(-50px, -8vw, -70px);
+            left: 50%;
+            transform: translateX(-50%);
+            animation: shine 2s infinite alternate;
+            color: #ffd700;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes shine {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6; }
+        }
+        
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+        
+        .dancing-letters span {
+            display: inline-block;
+        }
+        
+        .dancing-letters span:nth-child(1) { animation: dance 1s infinite 0.1s; }
+        .dancing-letters span:nth-child(2) { animation: dance 1s infinite 0.2s; }
+        .dancing-letters span:nth-child(3) { animation: dance 1s infinite 0.3s; }
+        .dancing-letters span:nth-child(4) { animation: dance 1s infinite 0.4s; }
+        .dancing-letters span:nth-child(5) { animation: dance 1s infinite 0.5s; }
+        .dancing-letters span:nth-child(6) { animation: dance 1s infinite 0.6s; }
+        .dancing-letters span:nth-child(7) { animation: dance 1s infinite 0.7s; }
+        .dancing-letters span:nth-child(8) { animation: dance 1s infinite 0.8s; }
+        .dancing-letters span:nth-child(9) { animation: dance 1s infinite 0.9s; }
+        
+        @keyframes dance {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .throne {
+            width: clamp(80px, 15vw, 120px);
+            height: clamp(80px, 15vw, 120px);
+            background: url('https://cdn-icons-png.flaticon.com/512/2583/2583344.png') no-repeat center center;
+            background-size: contain;
+            position: absolute;
+            bottom: clamp(-60px, -10vw, -70px);
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.8;
+            filter: hue-rotate(0deg) saturate(1.5);
+        }
+
+        /* 平板设备适配 (768px - 1024px) */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .king-text {
+                font-size: clamp(3rem, 7vw, 5rem);
+            }
+            
+            .crown {
+                font-size: clamp(2.5rem, 5vw, 3.5rem);
+            }
+        }
+
+        /* 移动端适配 (最大768px) */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .king-container {
+                padding: 15px;
+            }
+
+            .king-text {
+                font-size: clamp(2rem, 10vw, 4rem);
+                margin-top: clamp(30px, 8vw, 50px);
+            }
+
+            .crown {
+                font-size: clamp(2rem, 8vw, 3rem);
+                top: clamp(-40px, -8vw, -50px);
+            }
+
+            .confetti {
+                width: 8px;
+                height: 8px;
+            }
+
+            .throne {
+                width: clamp(60px, 18vw, 100px);
+                height: clamp(60px, 18vw, 100px);
+            }
+        }
+
+        /* 小屏手机适配 (最大480px) */
+        @media (max-width: 480px) {
+            .king-text {
+                font-size: clamp(1.8rem, 12vw, 3rem);
+                margin-top: 40px;
+            }
+
+            .crown {
+                font-size: clamp(1.8rem, 10vw, 2.5rem);
+                top: -35px;
+            }
+
+            .confetti {
+                width: 6px;
+                height: 6px;
+            }
+
+            .throne {
+                width: clamp(50px, 20vw, 80px);
+                height: clamp(50px, 20vw, 80px);
+                bottom: clamp(-45px, -12vw, -55px);
+            }
+        }
+
+        /* 横屏模式适配 */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .king-text {
+                font-size: clamp(2rem, 8vh, 4rem);
+                margin-top: 6vh;
+            }
+
+            .crown {
+                font-size: clamp(2rem, 6vh, 3rem);
+                top: -6vh;
+            }
+
+            .throne {
+                width: clamp(60px, 12vh, 100px);
+                height: clamp(60px, 12vh, 100px);
+                bottom: -10vh;
+            }
+
+            .confetti {
+                width: 7px;
+                height: 7px;
+            }
+        }
+
+        /* 超小屏幕横屏 */
+        @media (orientation: landscape) and (max-height: 450px) {
+            .king-text {
+                font-size: clamp(1.5rem, 10vh, 3rem);
+                margin-top: 4vh;
+            }
+
+            .crown {
+                font-size: clamp(1.5rem, 8vh, 2.5rem);
+                top: -5vh;
+            }
+
+            .throne {
+                width: clamp(50px, 15vh, 80px);
+                height: clamp(50px, 15vh, 80px);
+                bottom: -8vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="king-container">
+        <div class="crown">👑</div>
+        <div class="dancing-letters king-text">
+            <span>Q</span>
+            <span>j</span>
+            <span>n</span>
+            <span> </span>
+            <span>i</span>
+            <span>s</span>
+            <span> </span>
+            <span>K</span>
+            <span>I</span>
+            <span>N</span>
+            <span>G</span>
+            <span>!</span>
+        </div>
+        <div class="throne"></div>
+    </div>
+
+    <script>
+        function createConfetti() {
+            const colors = ['#ff0000', '#ff8a00', '#e52e71', '#ffd700'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        createConfetti();
+        setInterval(createConfetti, 3000);
+        document.addEventListener('click', createConfetti);
+    </script>
+</body>
+</html>
